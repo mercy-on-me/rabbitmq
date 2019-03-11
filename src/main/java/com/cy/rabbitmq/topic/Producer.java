@@ -26,12 +26,25 @@ public class Producer {
         Channel channel = connection.createChannel();
 
         String exchangeName = "topic_exchange";
-        String routingKEy = "topic_routingKey.test";
-        String msg = "topic exchanege!";
+        String routingKey_1 = "topic_routingKey.save";
+        String routingKey_2 = "topic_routingKey.update";
+        String routingKey_3 = "topic_routingKey.update.delete";
 
-        for (int i = 0; i < 5; i++) {
-            channel.basicPublish(exchangeName, routingKEy, null, msg.getBytes());
-        }
+        String msg_1 = "topic exchanege! [ topic_routingKey.save ]";
+        String msg_2 = "topic exchanege! [ topic_routingKey.update ]";
+        String msg_3 = "topic exchanege! [ topic_routingKey.update.delete ]";
+
+        channel.basicPublish(exchangeName, routingKey_1, null, msg_1.getBytes());
+        System.out.println("producer send message : " + msg_1);
+
+        channel.basicPublish(exchangeName, routingKey_2, null, msg_2.getBytes());
+        System.out.println("producer send message : " + msg_2);
+
+        channel.basicPublish(exchangeName, routingKey_3, null, msg_3.getBytes());
+        System.out.println("producer send message : " + msg_3);
+
+        channel.close();
+        connection.close();
 
     }
 }

@@ -45,8 +45,8 @@ public class Producer {
             System.out.println(" producer end msg : " + msg);
         }
 
-//        // 7. 关闭连接
-//        channel.close();
-//        connection.close();
+        // 7. 关闭连接
+        channel.close();
+        connection.close();
     }
 }
