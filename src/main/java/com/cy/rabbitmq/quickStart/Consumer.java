@@ -65,6 +65,7 @@ public class Consumer {
          *
          *      autoAck : 是否自动接收. ack : 假设 broker 有一条信息发送到了 consumer 端,consumer会马上回送给 broker一条 ack 消息,告诉 broker
          *          这条信息我收到了. 如果 ack 为 true,则会自动签收.
+         *          RabbitMQ 有两种签收方式 : 自动签收和手动签收.真正的工作环境中,基本上 [ 不会使用自动签收 ].因为如果要做消费端限流,一定要设置为 false.
          *
          *      callback : 具体的消费者对象
          */
